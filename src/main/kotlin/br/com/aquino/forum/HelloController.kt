@@ -10,6 +10,6 @@ class HelloController {
 
     @GetMapping
     fun hello(): String {
-        return "Hello Word alterado!"
+        return "Hello Word!"
     }
 }
