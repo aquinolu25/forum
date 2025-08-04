@@ -1,4 +1,4 @@
-package br.com.aquino.forum
+package br.com.aquino.forum.controller
 
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
