@@ -4,6 +4,8 @@ import br.com.aquino.forum.model.Topico
 import br.com.aquino.forum.service.TopicoService
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -19,6 +21,11 @@ class TopicoController(private val service: TopicoService) {
     @GetMapping("/{id}")
     fun buscarPorId(@PathVariable id: Long): Topico {
         return service.buscarPorId(id)
+    }
+
+    @PostMapping
+    fun cadastrar(@RequestBody topico: Topico):  Void {
+        service.cadastrar(topico)
     }
 
 }

@@ -7,53 +7,9 @@ import org.springframework.stereotype.Service
 import java.util.Arrays
 
 @Service
-class TopicoService(private var topicos: List<Topico>) {
+class TopicoService(private var topicos: List<Topico> = ArrayList(
 
-    init {
-        val topico = Topico(
-            id = 1,
-            titulo = "Dúvida Kotlin",
-            mensagem = "Variaveis no Kotlin",
-            curso = Curso(
-                id = 1,
-                nome = "Kotlin",
-                categoria = "Programação"),
-            autor = Usuario(
-                id = 1,
-                nome = "Luiz Aquino",
-                email = "luiz@gmail.com")
-        )
-
-        val topico2 = Topico(
-            id = 2,
-            titulo = "Dúvida Kotlin 2",
-            mensagem = "Variaveis no Kotlin 2",
-            curso = Curso(
-                id = 1,
-                nome = "Kotlin",
-                categoria = "Programação"),
-            autor = Usuario(
-                id = 1,
-                nome = "Luiz Aquino",
-                email = "luiz@gmail.com")
-        )
-
-        val topico3 = Topico(
-            id = 3,
-            titulo = "Dúvida Kotlin 3",
-            mensagem = "Variaveis no Kotlin 3",
-            curso = Curso(
-                id = 1,
-                nome = "Kotlin",
-                categoria = "Programação"),
-            autor = Usuario(
-                id = 1,
-                nome = "Luiz Aquino",
-                email = "luiz@gmail.com")
-        )
-
-        topicos = Arrays.asList(topico, topico2, topico3)
-    }
+)) {
 
     fun listar(): List<Topico> {
         return topicos
@@ -63,6 +19,10 @@ class TopicoService(private var topicos: List<Topico>) {
         return topicos.stream().filter ({
             t -> t.id == id
         }).findFirst().get()
+    }
+
+    fun cadastrar(topico: Topico) {
+        topicos.plus(topico)
     }
 
 }
